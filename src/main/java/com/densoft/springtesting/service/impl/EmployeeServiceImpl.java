@@ -4,10 +4,13 @@ import com.densoft.springtesting.exception.ResourceNotFoundException;
 import com.densoft.springtesting.model.Employee;
 import com.densoft.springtesting.repository.EmployeeRepository;
 import com.densoft.springtesting.service.EmployeeService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
 
