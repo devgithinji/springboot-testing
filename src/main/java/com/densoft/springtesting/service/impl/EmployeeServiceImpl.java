@@ -5,6 +5,7 @@ import com.densoft.springtesting.model.Employee;
 import com.densoft.springtesting.repository.EmployeeRepository;
 import com.densoft.springtesting.service.EmployeeService;
 
+import java.util.List;
 import java.util.Optional;
 
 public class EmployeeServiceImpl implements EmployeeService {
@@ -24,5 +25,25 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new ResourceNotFoundException("Employee already exists with given email: " + employee.getEmail());
         }
         return employeeRepository.save(employee);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    @Override
+    public Optional<Employee> getEmployeeById(long id) {
+        return employeeRepository.findById(id);
+    }
+
+    @Override
+    public Employee updateEmployee(Employee updatedEmployee) {
+        return employeeRepository.save(updatedEmployee);
+    }
+
+    @Override
+    public void deleteEmployee(long id) {
+        employeeRepository.deleteById(id);
     }
 }
